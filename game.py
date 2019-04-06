@@ -1,6 +1,8 @@
 import pygame as pg
 import sys
 from settings import *
+from tile import *
+from board import *
 
 class Game:
     def __init__(self):
@@ -8,14 +10,12 @@ class Game:
         self.screen = pg.display.set_mode((WIDTH, HEIGHT))
         pg.display.set_caption(TITLE)
         self.clock = pg.time.Clock()
+        self.board = Board(HEIGHT, WIDTH, self.screen)
+        self.board.init_tiles(9, TILESIZE, WHITE)
         pg.key.set_repeat(500, 100)
         self.load_data()
 
     def load_data(self):
-        pass
-
-    def new(self):
-        # initialize all variables and do all the setup for a new game
         pass
 
     def run(self):
@@ -36,6 +36,7 @@ class Game:
         pass
 
     def draw_grid(self):
+        self.board.draw_tiles()
         for x in range(0, WIDTH, TILESIZE):
             pg.draw.line(self.screen, WHITE, (x, 0), (x, HEIGHT))
         for y in range(0, HEIGHT, TILESIZE):
@@ -62,6 +63,5 @@ class Game:
 g = Game()
 g.show_start_screen()
 while True:
-    g.new()
     g.run()
     g.show_go_screen()
