@@ -7,8 +7,8 @@ class Tile:
         self._y = y
         self._color = color
 
-    def draw(self, screen):
-        rect = pg.Rect(self.x, self.y, self._size, self._size)
+    def draw(self, screen, row, column):
+        rect = pg.Rect(self._size * row, self._size * column, self._size, self._size)
         pg.draw.rect(screen, self._color, rect)
 
     @property

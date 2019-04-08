@@ -10,7 +10,7 @@ class Game:
         self.screen = pg.display.set_mode((WIDTH, HEIGHT))
         pg.display.set_caption(TITLE)
         self.clock = pg.time.Clock()
-        self.board = Board(HEIGHT, WIDTH, self.screen)
+        self.board = Board(HEIGHT, WIDTH, self.screen, 3, 3)
         self.board.init_tiles(9, TILESIZE, WHITE)
         pg.key.set_repeat(500, 100)
         self.load_data()
@@ -36,7 +36,7 @@ class Game:
         pass
 
     def draw_grid(self):
-        self.board.draw_tiles()
+        self.board.draw_grid()
         for x in range(0, WIDTH, TILESIZE):
             pg.draw.line(self.screen, WHITE, (x, 0), (x, HEIGHT))
         for y in range(0, HEIGHT, TILESIZE):
