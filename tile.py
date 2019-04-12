@@ -6,10 +6,10 @@ class Tile:
         self._x = x
         self._y = y
         self._color = color
+        self._rect = pg.Rect(self._x + 1, self._y + 1, self._size - 1, self._size - 1)
 
-    def draw(self, screen, row, column):
-        rect = pg.Rect(self._size * row, self._size * column, self._size, self._size)
-        pg.draw.rect(screen, self._color, rect)
+    def draw(self, screen):
+        pg.draw.rect(screen, self._color, self._rect)
 
     @property
     def x(self):
@@ -26,3 +26,11 @@ class Tile:
     @y.setter
     def y(self, yval):
         self._y = yval
+
+    @property
+    def size(self):
+        return self._size
+
+    @size.setter
+    def size(self, sizeval):
+        self._size = sizeval
