@@ -4,6 +4,7 @@ from settings import *
 from tile import *
 from board import *
 
+
 class Game:
     def __init__(self):
         pg.init()
@@ -11,7 +12,7 @@ class Game:
         pg.display.set_caption(TITLE)
         self.clock = pg.time.Clock()
         self.board = Board(HEIGHT, WIDTH, self.screen, 3, 3)
-        self.board.init_tiles(TILESIZE, WHITE)
+        self.board.init_tiles(TILESIZE, WHITE, BLACK)
         pg.key.set_repeat(500, 100)
         self.load_data()
 
@@ -46,6 +47,10 @@ class Game:
     def events(self):
         # catch all events here
         for event in pg.event.get():
+            if event.type == pg.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    mouse_pos = pg.mouse.get_pos()
+                    self.board.handle_click(mouse_pos)
             if event.type == pg.QUIT:
                 self.quit()
 
