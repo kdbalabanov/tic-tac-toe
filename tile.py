@@ -1,55 +1,25 @@
 import pygame as pg
+from settings import *
 
 
 class Tile:
-    def __init__(self, size, x, y, color, marking_color):
-        self._size = size
-        self._x = x
-        self._y = y
-        self._color = color
-        self._marking = " "
-        self._marking_color = marking_color
-        self._rect = pg.Rect(self._x + 1, self._y + 1, self._size - 1, self._size - 1)
-        self._font = pg.font.Font(pg.font.get_default_font(), self._size)
+    size = TILESIZE
+    color = WHITE
+    marking = ' '
+    marking_color = BLACK
+
+    def __init__(self, row, column):
+        self.x = row * self.size
+        self.y = column * self.size
+        self.rect = pg.Rect(self.x + 1, self.y + 1, self.size - 1, self.size - 1)
+        self.font = pg.font.Font(pg.font.get_default_font(), self.size)
 
     def draw(self, screen):
-        pg.draw.rect(screen, self._color, self._rect)
+        pg.draw.rect(screen, self.color, self.rect)
         self.draw_mark(screen)
 
     def draw_mark(self, screen):
-        text = self._font.render(self._marking, True, self._marking_color)
+        text = self.font.render(self.marking, True, self.marking_color)
         text_rect = text.get_rect()
-        text_rect.center = self._rect.center
+        text_rect.center = self.rect.center
         screen.blit(text, text_rect)
-
-    @property
-    def x(self):
-        return self._x
-
-    @x.setter
-    def x(self, xval):
-        self._x = xval
-
-    @property
-    def y(self):
-        return self._y
-
-    @y.setter
-    def y(self, yval):
-        self._y = yval
-
-    @property
-    def size(self):
-        return self._size
-
-    @size.setter
-    def size(self, sizeval):
-        self._size = sizeval
-
-    @property
-    def marking(self):
-        return self._marking
-
-    @marking.setter
-    def marking(self, markingval):
-        self._marking = markingval

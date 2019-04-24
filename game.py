@@ -1,8 +1,7 @@
 import pygame as pg
 import sys
 from settings import *
-from tile import *
-from board import *
+from board import Board
 
 
 class Game:
@@ -11,8 +10,8 @@ class Game:
         self.screen = pg.display.set_mode((WIDTH, HEIGHT))
         pg.display.set_caption(TITLE)
         self.clock = pg.time.Clock()
-        self.board = Board(HEIGHT, WIDTH, self.screen, 3, 3)
-        self.board.init_tiles(TILESIZE, WHITE, BLACK)
+        self.board = Board(self.screen)
+        self.board.init_tiles()
         pg.key.set_repeat(500, 100)
         self.load_data()
 
@@ -59,10 +58,3 @@ class Game:
 
     def show_go_screen(self):
         pass
-
-# create the game object
-g = Game()
-g.show_start_screen()
-while True:
-    g.run()
-    g.show_go_screen()
