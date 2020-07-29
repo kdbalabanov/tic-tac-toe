@@ -1,27 +1,22 @@
+import settings
 from tile import Tile
-from settings import *
 
 
 class Board:
-    height = HEIGHT
-    width = WIDTH
-    rows = ROWS
-    columns = COLUMNS
-    tiles = []
-
     def __init__(self, screen):
         self.screen = screen
+        self.tiles = []
 
     def init_tiles(self):
-        for row in range(self.rows):
-            for column in range(self.columns):
+        for row in range(0, settings.ROWS):
+            for column in range(0, settings.COLUMNS):
                 self.tiles.append(Tile(row, column))
 
     def draw_grid(self):
         for tile in self.tiles:
             tile.draw(self.screen)
 
-    def handle_click(self, mouse_pos, current_player):
+    def is_tile_updated(self, mouse_pos, marking):
         for tile in self.tiles:
-            if tile.x + tile.size > mouse_pos[0] > tile.x and tile.y + tile.size > mouse_pos[1] > tile.y:
-                tile.marking = current_player
+            if tile.x + settings.TILE_SIZE > mouse_pos[0] > tile.x and tile.y + settings.TILE_SIZE > mouse_pos[1] > tile.y:
+                return tile.is_marking_updated(marking)
