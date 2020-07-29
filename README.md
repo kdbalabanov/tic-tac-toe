@@ -1,6 +1,5 @@
 # Tic-Tac-Toe
-Tic Tac Toe with pygame. The opposite player is an implementation of the minimax algorithm.
+Tic Tac Toe with pygame.
 
-Human Player - X
-
-AI Player - O
+First Player - X
+Second Player - O
