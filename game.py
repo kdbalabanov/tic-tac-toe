@@ -9,52 +9,36 @@ class Game:
         pg.init()
         self.screen = pg.display.set_mode((WIDTH, HEIGHT))
         pg.display.set_caption(TITLE)
-        self.clock = pg.time.Clock()
         self.board = Board(self.screen)
         self.board.init_tiles()
-        pg.key.set_repeat(500, 100)
-        self.load_data()
-
-    def load_data(self):
-        pass
+        self.current_player = PLAYER_X
 
     def run(self):
-        # game loop - set self.playing = False to end the game
         self.playing = True
         while self.playing:
-            self.dt = self.clock.tick(FPS) / 1000
             self.events()
-            self.update()
             self.draw()
 
     def quit(self):
         pg.quit()
         sys.exit()
 
-    def update(self):
-        # update portion of the game loop
-        pass
-
-    def draw_grid(self):
-        self.board.draw_grid()
-
     def draw(self):
         self.screen.fill(BG_COLOUR)
-        self.draw_grid()
+        self.board.draw_grid()
         pg.display.flip()
 
     def events(self):
-        # catch all events here
         for event in pg.event.get():
             if event.type == pg.MOUSEBUTTONDOWN:
                 if event.button == 1:
-                    mouse_pos = pg.mouse.get_pos()
-                    self.board.handle_click(mouse_pos)
+                    self.board.handle_click(pg.mouse.get_pos(), self.current_player)
+                    self.update_player_turn()
             if event.type == pg.QUIT:
                 self.quit()
 
-    def show_start_screen(self):
-        pass
-
-    def show_go_screen(self):
-        pass
+    def update_player_turn(self):
+        if self.current_player == PLAYER_X:
+            self.current_player = PLAYER_O
+        elif self.current_player == PLAYER_O:
+            self.current_player = PLAYER_X

@@ -21,7 +21,7 @@ class Board:
         for tile in self.tiles:
             tile.draw(self.screen)
 
-    def handle_click(self, mouse_pos):
+    def handle_click(self, mouse_pos, current_player):
         for tile in self.tiles:
             if tile.x + tile.size > mouse_pos[0] > tile.x and tile.y + tile.size > mouse_pos[1] > tile.y:
-                tile.marking = "X"
+                tile.marking = current_player
