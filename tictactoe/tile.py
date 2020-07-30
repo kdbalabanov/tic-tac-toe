@@ -1,4 +1,4 @@
-import settings
+import tictactoe.settings as settings
 import pygame as pg
 
 
@@ -8,8 +8,8 @@ class Tile:
         self.y = column * settings.TILE_SIZE
         self.row = row
         self.column = column
-        self.rect = pg.Rect(self.x + 1, self.y + 1, settings.TILE_SIZE - 1, settings.TILE_SIZE - 1)
         self.marking = settings.EMPTY
+        self.rect = pg.Rect(self.x + 1, self.y + 1, settings.TILE_SIZE - 1, settings.TILE_SIZE - 1)
         self.font = pg.font.Font(pg.font.get_default_font(), settings.TILE_SIZE)
 
     def draw(self, screen):

@@ -1,5 +1,5 @@
-import settings
-from tile import Tile
+import tictactoe.settings as settings
+from tictactoe.tile import Tile
 
 
 class Board:

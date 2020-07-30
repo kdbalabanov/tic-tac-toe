@@ -1,10 +1,10 @@
-import settings
+import tictactoe.settings as settings
 import pygame as pg
 import os
 from tkinter import Tk
 from tkinter import messagebox
 import sys
-from board import Board
+from tictactoe.board import Board
 
 
 class Game:
