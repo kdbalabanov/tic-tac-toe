@@ -17,6 +17,14 @@ Python 3
 
 The PyCharm IDE is recommended.
 
+### Installing
+
+Navigate to the root of the project and execute the following command to install the related dependencies:
+
+```
+pip install -r requirements.txt
+```
+
 ## How to Run/Deploy
 
 Run main.py which is the starting point of the program.
@@ -24,17 +32,9 @@ Run main.py which is the starting point of the program.
 Here is an example of what the game looks like:
 ![tictactoe](https://user-images.githubusercontent.com/22963419/89101751-c9413500-d3fa-11ea-9d5f-ccee6a51d7c4.PNG)
 
-### Installing
-
-Install the dependencies according to the requirements.txt file
-
-```
-pip install -r requirements.txt
-```
-
 ## Running the tests
 
-The unit tests are found in the 'tests' folder. The pytest testing framework was used (in PyCharm) 
+The unit tests can be found in the 'tests' folder. The pytest testing framework was used (in PyCharm) 
 
 ## Built With
 
