@@ -6,7 +6,7 @@ There are two players - 'X' and 'O'.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Clone this repository.
 
 ### Prerequisites
 
@@ -16,6 +16,13 @@ Python 3
 ```
 
 The PyCharm IDE is recommended.
+
+## How to Run/Deploy
+
+Run main.py which is the starting point of the program.
+
+Here is an example of what the game looks like:
+![tictactoe](https://user-images.githubusercontent.com/22963419/89101751-c9413500-d3fa-11ea-9d5f-ccee6a51d7c4.PNG)
 
 ### Installing
 
