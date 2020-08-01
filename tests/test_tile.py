@@ -13,12 +13,12 @@ def my_tile():
 
 
 def test_tile_x(my_tile):
-    x = 1 * settings.TILE_SIZE
+    x = 2 * settings.TILE_SIZE
     assert my_tile.x == x
 
 
 def test_tile_y(my_tile):
-    y = 2 * settings.TILE_SIZE
+    y = 1 * settings.TILE_SIZE
     assert my_tile.y == y
 
 

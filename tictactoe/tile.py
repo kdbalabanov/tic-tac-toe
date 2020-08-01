@@ -4,8 +4,8 @@ import pygame as pg
 
 class Tile:
     def __init__(self, row, column):
-        self.x = row * settings.TILE_SIZE
-        self.y = column * settings.TILE_SIZE
+        self.x = column * settings.TILE_SIZE
+        self.y = row * settings.TILE_SIZE
         self.row = row
         self.column = column
         self.marking = settings.EMPTY
@@ -24,7 +24,7 @@ class Tile:
 
     def is_marking_updated(self, marking):
         if self.marking == settings.EMPTY:
-            print('Updated tile at ROW: ' + str(self.row + 1) + ' and COLUMN: ' + str(self.column + 1) + ' - NEW MARKING - ' + marking)
+            print('Updated tile at ROW: ' + str(self.row) + ' and COLUMN: ' + str(self.column) + ' - NEW MARKING - ' + marking)
             self.marking = marking
             return True
         return False

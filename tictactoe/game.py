@@ -16,9 +16,9 @@ class Game:
         self.board = Board(self.screen)
         self.board.init_tiles()
         self.current_player = settings.PLAYER_X
+        self.playing = True
 
     def run(self):
-        self.playing = True
         while self.playing:
             self.events()
             self.draw()
@@ -37,9 +37,20 @@ class Game:
             if event.type == pg.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     if self.board.is_tile_updated(pg.mouse.get_pos(), self.current_player):
-                        self.update_player_turn()
+                        self.update_game_state()
+
             if event.type == pg.QUIT:
                 self.quit()
+
+    def update_game_state(self):
+        if self.board.is_in_winning_state():
+            self.playing = False
+            self.draw()
+            self.show_message()
+        else:
+            self.update_player_turn()
+
+        self.draw()
 
     def update_player_turn(self):
         if self.current_player == settings.PLAYER_X:
