@@ -31,7 +31,7 @@ The unit tests are found in the 'tests' folder. The pytest testing framework was
 
 ## Built With
 
-* [pygame](https://www.pygame.org/news) - The game development library
+* [pygame](https://www.pygame.org/news) - The Python game development library
 
 ## License
 
